@@ -17,6 +17,8 @@ services:
       - wgd_awgconf:/etc/amnezia/amneziawg
     networks:
       - wgd_net
+    cap_add:
+      - NET_ADMIN
 
 volumes:
   wgd_data:
