@@ -154,7 +154,9 @@ ensure_blocking(){
     exiterr "No log files found to tail. Something went wrong, exiting..."
   fi
 
-  wait "$PID_INOTIFY" "$PID_TAIL"
+  while kill -0 "$PID_INOTIFY" 2>/dev/null || kill -0 "$PID_TAIL" 2>/dev/null; do
+    sleep 1
+  done
 }
 
 stop_all_proces() {
@@ -167,8 +169,13 @@ stop_all_proces() {
     if [[ -n "$pid" ]] && kill -0 "$pid" 2>/dev/null; then
       log "Stopping $name (PID $pid)..."
       kill -TERM "$pid"
-      if [[ "$name" != "gunicorn" ]]; then
-        wait "$pid" 2>/dev/null
+      local timeout=5
+      while kill -0 "$pid" 2>/dev/null && [ $timeout -gt 0 ]; do
+        sleep 1
+        ((timeout--))
+      done
+      if [[ "$name" != "gunicorn" ]] && kill -0 "$pid" 2>/dev/null; then
+        kill -KILL "$pid" 2>/dev/null
       fi
     fi
   }
