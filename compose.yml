@@ -1,0 +1,41 @@
+services:
+  wgd:
+    image: ghcr.io/jinndi/wgdashboard:latest
+    container_name: wgd
+    restart: unless-stopped
+    environment:
+      TZ: "Europe/Amsterdam"
+      WGD_HOST: ""
+      WGD_PORT: "10086"
+      ALLOW_FORWARD: ""
+    ports:
+      - 10086:10086/tcp
+      - 51820-51830:51820-51830/udp
+    volumes:
+      - wgd_data:/data
+      - wgd_wgconf:/etc/wireguard
+      - wgd_awgconf:/etc/amnezia/amneziawg
+    networks:
+      - wgd_net
+
+volumes:
+  wgd_data:
+    name: wgd_data
+    driver: local
+  wgd_wgconf:
+    name: wgd_wgconf
+    driver: local
+  wgd_awgconf:
+    name: wgd_awgconf
+    driver: local
+
+networks:
+  wgd_net:
+    name: wgd_net
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.100.0/24
+        - subnet: fd00:dead:beef:100::/64
