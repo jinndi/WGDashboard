@@ -18,6 +18,7 @@
 - Minimal number of options for running the image
 - Supports only two architectures: linux/amd64 and linux/arm64
 - Automatic configuration of forwarding rules for WG interfaces
+- The base paths to resource files have been fixed for operation behind a reverse proxy
 
 ## 📋 Requirements
 
