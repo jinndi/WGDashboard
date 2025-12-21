@@ -80,7 +80,7 @@ COPY ./entrypoint.sh /entrypoint.sh
 RUN set -ex && \
     apk add --no-cache \
       bash curl iptables iproute2 procps tzdata \
-      python3 wireguard-tools openssl inotify-tools
+      python3 wireguard-tools openssl idn2-utils inotify-tools
 RUN mkdir -p /data /etc/wireguard /etc/amnezia/amneziawg && \
     chmod -R +x /scripts /entrypoint.sh
 
