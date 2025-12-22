@@ -8,6 +8,7 @@ services:
       WGD_HOST: ""
       WGD_PORT: "10086"
       ALLOW_FORWARD: ""
+      NET_IFACE: ""
     ports:
       - 10086:10086/tcp
       - 51820-51830:51820-51830/udp
