@@ -4,6 +4,9 @@
 <h1 align="center">
 <a href="https://github.com/donaldzou/WGDashboard">WGDashboard</a> docker image
 </h1>
+<h3 align="center">
+Simple WireGuard VPN web control panel Docker image
+</h3>
 <p align="center">
 <img alt="Release" src="https://img.shields.io/github/v/release/jinndi/WGDashboard">
 <img alt="Code size in bytes" src="https://img.shields.io/github/languages/code-size/jinndi/WGDashboard">
@@ -12,11 +15,12 @@
 <img alt="Visitor" src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2Fjinndi%2FWGDashboard&label=visitor&icon=eye&color=%230d6efd&message=&style=flat&tz=UTC">
 </p>
 
-## 🚀 Differences from the official image
-
+## 🧩 Differences from the official image
 - Built on a clean Alpine base image
+- Clean image, no extra env variables, all settings in web panel
 - Supports only two architectures: linux/amd64 and linux/arm64
 - Automatic configuration of forwarding rules for WG interfaces
+- Per the POSIX/Unix standard, environment variables are written in UPPERCASE
 - The base paths to resource files have been fixed for operation behind a reverse proxy
 
 ## 📋 Requirements
