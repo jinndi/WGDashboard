@@ -11,7 +11,7 @@ CONFIG_FILE="${WGDASH}/wg-dashboard.ini"
 LOG_DIR="${WGDASH}/log"
 
 DATA_DIR="/data"
-DATA_DB_DIR="$DATA_DIR/db"
+DATA_DB_DIR="${DATA_DIR}/db"
 DATA_CONFIG_FILE="${DATA_DIR}/wg-dashboard.ini"
 
 PID_GUNICORN=""

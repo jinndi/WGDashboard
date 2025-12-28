@@ -1,7 +1,7 @@
 # https://github.com/WGDashboard/WGDashboard/releases
 ARG v_wgdash="v4.3.1"
 # https://hub.docker.com/_/alpine/tags
-ARG v_alpine="3.22"
+ARG v_alpine="3.23"
 
 FROM ghcr.io/wgdashboard/wgdashboard:${v_wgdash} AS wgdashboard
 
