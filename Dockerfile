@@ -1,5 +1,5 @@
 # https://github.com/WGDashboard/WGDashboard/releases
-ARG v_wgdash="v4.3.1"
+ARG v_wgdash="v4.3.3"
 # https://hub.docker.com/_/alpine/tags
 ARG v_alpine="3.23"
 
@@ -60,7 +60,7 @@ RUN set -ex && \
 # Final stage
 FROM alpine:${v_alpine}
 
-LABEL org.opencontainers.image.version=4.3.1
+LABEL org.opencontainers.image.version=4.3.3
 LABEL org.opencontainers.image.title=WGDashboard
 LABEL org.opencontainers.image.description="WGDashboard alpine docker image"
 LABEL org.opencontainers.image.documentation=https://github.com/jinndi/WGDashboard
